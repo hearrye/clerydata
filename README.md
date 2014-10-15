@@ -16,7 +16,20 @@ To do this for yourself, assuming you have postgresql installed. Create a databa
 copy summary from '/Users/airportyh/Home/Code/hearrye/clean.csv' DELIMITERS ',' CSV;
 ```
 
-Now you can start querying and playing with the data. For example, to get the summary of all counts of reported cases by institute and year:
+Now you can start querying and playing with the data.
+
+Summary of all counts of reported cases by year:
+
+```
+select sum(forcib_or_nonfor), year
+from summary
+where
+  on_or_off_campus = 'Total on or off campus'
+group by year
+order by year;
+```
+
+Summary of all counts of reported cases by institute and year:
 
 ```
 select sum(forcib_or_nonfor), year, instnm 
