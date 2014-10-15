@@ -12,7 +12,7 @@ After last night I realized that most of the members were more comfortable with 
 To do this for yourself, assuming you have postgresql installed. Create a database named hearrye and create the summary table using `schema.sql`. Then, import the data from using this command inside of psql
 
 ```
-copy summary from '/Users/airportyh/Home/Code/hearrye/clean.csv' DELIMITERS ',' CSV;
+copy summary from '<path to file>/clery-data.csv' DELIMITERS ',' CSV;
 ```
 
 Now you can start querying and playing with the data.
