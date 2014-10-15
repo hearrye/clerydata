@@ -29,6 +29,20 @@ group by year
 order by year;
 ```
 
+For that we got
+
+```
+ sum  | year 
+------+------
+ 2520 | 2006
+ 2387 | 2007
+ 2389 | 2008
+ 2339 | 2009
+ 2610 | 2010
+ 3072 | 2011
+ 3710 | 2012
+```
+
 Summary of all counts of reported cases by institute and year:
 
 ```
@@ -40,6 +54,7 @@ group by instnm, year
 order by instnm, year;
 ```
 
+For that you can see the output in `summary.txt`.
 Note that I am filtering by on_or_off_campus = 'Total on or off campus', because that is the sum of both 'On-campus' and 'Off-campus'. If we didn't do this, all the numbers would be counted twice. If you wanted the numbers for only Georgia Tech:
 
 ```
