@@ -1,10 +1,9 @@
 Hearrye Clerydata
 =================
 
-These are some Node.js scripts to work with the clery data from [clerypl.us](http://clerypl.us/).
-
-* `parse.js` - reads `clery.csv`, parses it and converts it to `clery.json`.
-* `import_to_db.js` - reads `clery.json`, and imports to a mongodb named `hearrye` on the local machine.
+* `clery-data.csv` - a cleaned up for UTF-8 encoding version of clery.csv for directly importing to postgresql. 
+* `schema.sql` - a schema for the summary table for the data in the csv file.
+* `summary.txt` - a output of the query of all counts of reported cases by institute and year
 
 ## Postgresql
 
