@@ -1,0 +1,16 @@
+{
+  "name": "hearrye",
+  "version": "0.0.0",
+  "description": "Data visualization for reported rape cases on college campuses.",
+  "main": "import_to_db.js",
+  "dependencies": {
+    "csv": "^0.4.0",
+    "mongodb": "^1.4.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
