@@ -1,0 +1,32 @@
+@font-face{
+	font-family: "Raleway";
+	src: url('Raleway-Regular.eot');
+	src: url('Raleway-Regular.eot#iefix') format('embedded-opentype'),
+		url('Raleway-Regular.ttf') format('truetype');
+}
+
+*{padding: 0px; margin: 0px; font-family: Raleway, Helvetica, sans-serif;}
+html{width: 100%; height: 100%;}
+th{padding-left: 6px; padding-right: 6px; text-align: center;}
+td{text-align: center;}
+
+.genButton {
+	background-color: #599bb3;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	border: 1px solid #29668f;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	padding: 6px 31px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #3d768a;
+}
+.genButton:hover {
+	background-color: #408c99;
+}
+.genButton:active {
+	position: relative;
+	top: 1px;
+}
