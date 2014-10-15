@@ -52,3 +52,36 @@ db.events.aggregate([{
   }
 }])
 ```
+
+## Postgresql
+
+After last night I realized that most of the members were more comfortable with SQL than Mongo, and even I think sql is easier to work with for data exploration, so I imported the data into postgres.
+
+To do this for yourself, assuming you have postgresql installed. Create a database named hearrye and create the summary table using `schema.sql`. Then, import the data from using this command inside of psql
+
+```
+copy summary from '/Users/airportyh/Home/Code/hearrye/clean.csv' DELIMITERS ',' CSV;
+```
+
+Now you can start querying and playing with the data. For example, to get the summary of all counts of reported cases by institute and year:
+
+```
+select sum(forcib_or_nonfor), year, instnm 
+from summary 
+where
+  on_or_off_campus = 'Total on or off campus' 
+group by instnm, year
+order by instnm, year;
+```
+
+Note that I am filtering by on_or_off_campus = 'Total on or off campus', because that is the sum of both 'On-campus' and 'Off-campus'. If we didn't do this, all the numbers would be counted twice. If you wanted the numbers for only Georgia Tech:
+
+```
+select sum(forcib_or_nonfor), year, instnm 
+from summary 
+where
+  instnm like 'Georgia Institute of Technology%' and
+  on_or_off_campus = 'Total on or off campus' 
+group by instnm, year
+order by instnm, year;
+```
