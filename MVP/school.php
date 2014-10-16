@@ -43,7 +43,7 @@ echo '</table>';
 
 echo '</div>'."\n";
 ?>
-<div class="chart" style="margin-top: 1em; margin-left: auto; margin-right: auto; width: 600px;"></div>
+<div class="chart" style="margin-top: 1em; margin-left: auto; margin-right: auto; width: 600px; border: 1px solid #999999;"></div>
 <script type="text/javascript">
 var schoolData = <?php echo json_encode($schoolData); ?>;
 
