@@ -37,6 +37,7 @@ a{color: #599bb3;}
 	padding-bottom: 4px;
 	border-bottom: 1px solid #AAAAAA;
 	cursor: pointer;
+	background-color: #FFFFFF;
 }
 .suggestedName:hover {
 	background-color: #AAFFAA;
