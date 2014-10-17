@@ -8,14 +8,6 @@ if (isset($_GET['n'])){
 	die();
 }
 
-$result = $db->prepare("SELECT name FROM schools WHERE name=? LIMIT 1");
-$result->bind_param('s', $name);
-$result->execute();
-$result->store_result();
-if ($result->num_rows > 0){
-	die();
-}
-
 $returnStr = '';
 $subCond = array();
 $bind = array();

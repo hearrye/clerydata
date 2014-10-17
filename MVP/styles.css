@@ -65,3 +65,13 @@ a{color: #599bb3;}
 .x.axis path {
   display: none;
 }
+
+.dataPt {
+	position: absolute;
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+}
+
+.est { background-color: #FF8888; }
+.act { background-color: #8888CC; border: 1px solid #8888CC; }
