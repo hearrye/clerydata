@@ -32,7 +32,7 @@ Configure Apache to serve the project directory(need more setup detail). Now you
 ## Playing With The Data
 
 ```sql
-select sum(total_incidents), year
+mysql> select sum(total_incidents), year
 from reported_data
 where
   on_or_off_campus = 'Total on or off campus'
@@ -57,7 +57,7 @@ For that we got
 Summary of all counts of reported cases by institute and year:
 
 ```sql
-select sum(total_incidents), year, instnm 
+mysql> select sum(total_incidents), year, instnm 
 from reported_data 
 where
   on_or_off_campus = 'Total on or off campus' 
@@ -68,7 +68,7 @@ order by instnm, year;
 Note that I am filtering by on_or_off_campus = 'Total on or off campus', because that is the sum of both 'On-campus' and 'Off-campus'. If we didn't do this, all the numbers would be counted twice. If you wanted the numbers for only Georgia Tech:
 
 ```sql
-select sum(total_incidents), year, instnm 
+mysql> select sum(total_incidents), year, instnm 
 from reported_data 
 where
   instnm like 'Georgia Institute of Technology%' and
