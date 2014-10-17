@@ -59,7 +59,7 @@ include_once('include.php');
 </script>
 <form action="school" method="get" autocomplete="off">
 <div style="text-align: center; font-size: 1.5em; position: relative; padding-top: 1em; margin-bottom: 2em;">
-	Find a school<br />
+	Find a School<br />
 	<input type="text" id="school_name" name="school_name" oninput="updateSuggestions()" style="font-size: 1em; width: 500px;" autocomplete="off" /> <input type="submit" value="Search" class="genButton" style="font-size: 1em;" />
 	<div id="school_suggestions_div" style="position: absolute; border: 1px solid #000000; display: none;"></div>
 </div>
