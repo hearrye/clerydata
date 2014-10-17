@@ -12,15 +12,9 @@ $returnStr = '';
 $subCond = array();
 $bind = array();
 
-$searchTerms = explode(' ', $name);
-foreach ($searchTerms as $sT){
-	$subCond[] = 'name LIKE ?';
-	$bind[] = '%'.$sT.'%';
-}
-$cond = implode(' AND ', $subCond);
-
-$result = $db->prepare("SELECT name FROM schools WHERE $cond LIMIT 10");
-call_user_func_array(array($result,"bind_param"), array_merge(array(str_repeat("s", count($bind))), $bind));
+$result = $db->prepare("SELECT name FROM schools WHERE name like ? LIMIT 10");
+$param = '%' . $name . '%';
+$result->bind_param('s', $param);
 $result->execute();
 $result->store_result();
 $result->bind_result($schoolName);
