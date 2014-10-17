@@ -84,3 +84,7 @@ where
 group by instnm, year
 order by instnm, year;
 ```
+
+## Contributing
+
+Please submit a pull request for any modification - do not push directly into master. @gtdavidv will be in charge of merge in pull requests and deploying them.
