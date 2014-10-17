@@ -27,6 +27,14 @@ mysql -u root hearrye < reported_data.sql
 mysql -u root hearrye < schools.sql
 ```
 
+Copy `app.ini.sample` to `app.ini`
+
+```
+cp app.ini.sample app.ini
+```
+
+If needed edit `app.ini` to change database settings.
+
 Configure Apache to serve the project directory(need more setup detail). Now you should be able to open the web app in the browser.
 
 ## Playing With The Data
