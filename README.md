@@ -1,27 +1,39 @@
-Hearrye Clerydata
-=================
+HEARRYE
+=======
 
-* `clery-data.csv` - a cleaned up for UTF-8 encoding version of clery.csv for directly importing to postgresql. 
-* `schema.sql` - a schema for the summary table for the data in the csv file.
-* `summary.txt` - a output of the query of all counts of reported cases by institute and year
+This is the web app for HEARRYE.
 
-## Postgresql
+## Getting Started
 
-After last night I realized that most of the members were more comfortable with SQL than Mongo, and even I think sql is easier to work with for data exploration, so I imported the data into postgres.
+To get setup developing this app, you'll need to have the following software installed:
 
-To do this for yourself, assuming you have postgresql installed. Create a database named hearrye and create the summary table using `schema.sql`. Then, import the data from using this command inside of psql
+* MySQL 5.5 or above
+* Apache with PHP 5.2 or above
 
-```
-copy summary from '<path to file>/clery-data.csv' DELIMITERS ',' CSV;
-```
-
-Now you can start querying and playing with the data.
-
-Summary of all counts of reported cases by year:
+Once you have these installed, create a MySQL user `'hearrye'@'localhost'` with password `hearryehearrye` and a database `hearrye`.
 
 ```
-select sum(forcib_or_nonfor), year
-from summary
+mysql -u root
+mysql> create user 'hearrye'@'localhost' identified by 'hearryehearrye';
+mysql> create database hearrye;
+mysql> grant all on hearrye.* to 'hearrye'@'localhost';
+mysql> exit
+```
+
+Then, import the existing data:
+
+```
+mysql -u root hearrye < reported_data.sql
+mysql -u root hearrye < schools.sql
+```
+
+Configure Apache to serve the project directory(need more setup detail). Now you should be able to open the web app in the browser.
+
+## Playing With The Data
+
+```
+select sum(total_incidents), year
+from reported_data
 where
   on_or_off_campus = 'Total on or off campus'
 group by year
@@ -45,20 +57,19 @@ For that we got
 Summary of all counts of reported cases by institute and year:
 
 ```
-select sum(forcib_or_nonfor), year, instnm 
-from summary 
+select sum(total_incidents), year, instnm 
+from reported_data 
 where
   on_or_off_campus = 'Total on or off campus' 
 group by instnm, year
 order by instnm, year;
 ```
 
-For that you can see the output in `summary.txt`.
 Note that I am filtering by on_or_off_campus = 'Total on or off campus', because that is the sum of both 'On-campus' and 'Off-campus'. If we didn't do this, all the numbers would be counted twice. If you wanted the numbers for only Georgia Tech:
 
 ```
-select sum(forcib_or_nonfor), year, instnm 
-from summary 
+select sum(total_incidents), year, instnm 
+from reported_data 
 where
   instnm like 'Georgia Institute of Technology%' and
   on_or_off_campus = 'Total on or off campus' 
